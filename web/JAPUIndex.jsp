@@ -12,11 +12,11 @@
         <jsp:include page="Includes/JAPUBanner.jsp"/>
 
         <section>
-            <h2>Java Web Technologies: Section 1</h2><br>
+            <h2>Java Web Technologies: Section 2</h2><br>
 
             <p>Pair Programming Team:</p><br>
 
-            <h2>Assignment 1</h2>
+            <h2>Assignment 2</h2>
             <h2>Driver: Johnstanley Ajagu</h2>
             <h2>Observer: Priyank Uniyal</h2><br>
 
@@ -26,7 +26,7 @@
             </p>
         </section>
 
-        <jsp:include page="/Includes/JAPUFooter.jsp"/>
+        <jsp:include page="Includes/JAPUFooter.jsp"/>
     </body>
 </html>
 

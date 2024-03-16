@@ -8,7 +8,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Display Members</title>
+        <title>JAPU Programming Club</title>
     </head>
     <body>
         <jsp:include page="Includes/JAPUBanner.jsp"/>
@@ -43,6 +43,6 @@
             </form>
         </section>
         
-        <jsp:include page="/Includes/JAPUFooter.jsp"/>
+        <jsp:include page="Includes/JAPUFooter.jsp"/>
     </body>
 </html>

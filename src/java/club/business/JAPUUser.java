@@ -1,4 +1,4 @@
-package JAPU.business;
+package club.business;
 
 import java.io.Serializable;
 

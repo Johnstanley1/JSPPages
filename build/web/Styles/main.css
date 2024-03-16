@@ -43,8 +43,10 @@ a:hover, a:focus { color: blue; }
 ul {
     margin-left: 1.5em;
     margin-bottom: 1.5em;
+    list-style-type: none;
 }
 li {
+    
     padding-bottom: 0.25em;
 }
 
@@ -53,6 +55,10 @@ p {
     margin-top: 23px;
 }
 
+i{
+    font-weight: bold;
+    color: red;
+}
 
 em {
     font-weight: bold;
@@ -190,4 +196,15 @@ section h2 {
 }
 .top_margin {
     margin-top: 1em;
+}
+
+table, tr {
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 50em;
+}
+th, td {
+    border: 1px solid black;
+    text-align: left;
+    padding: .5em;
 }

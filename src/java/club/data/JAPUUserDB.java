@@ -1,6 +1,6 @@
-package JAPU.data;
+package club.data;
 
-import JAPU.business.JAPUUser;
+import club.business.JAPUUser;
 
 /**
  *

@@ -8,7 +8,7 @@
 <html>
      <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Register New Members</title>
+        <title>JAPU Programming Club</title>
     </head>
     <body>
         <jsp:include page="Includes/JAPUBanner.jsp"/>
@@ -22,6 +22,7 @@
             
             <form action="JAPUClub" method="post">
                 <input type="hidden" name="action" value="add">
+                
                 <label>Full Name:</label>
                 <input type="text" id="fullName" name="fullName" style="width:200px" value="${user.fullName}"><br>
 
@@ -56,6 +57,6 @@
             </form>       
         </section>
             
-        <jsp:include page="/Includes/JAPUFooter.jsp"/>
+        <jsp:include page="Includes/JAPUFooter.jsp"/>
     </body>
 </html>
