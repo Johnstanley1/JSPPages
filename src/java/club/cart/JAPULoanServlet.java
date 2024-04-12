@@ -2,45 +2,40 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package club.admin;
-
+package club.cart;
+import club.business.ELoan;
 import club.business.Book;
-import club.data.BookIO;
 import java.io.IOException;
-import java.util.ArrayList;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import java.util.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
 
 /**
  *
  * @author joees
  */
-public class JAPUDisplayBooksServlet extends HttpServlet {
+public class JAPULoanServlet extends HttpServlet {
 
-     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         
-        String url = "/JAPUDisplayBooks.jsp";
+                                
+        String url = "/JAPUELoan.jsp";
         ServletContext sc = getServletContext();
         String bookFilePath = sc.getInitParameter("booksFilePath");
         String path = sc.getRealPath(bookFilePath);
-        ArrayList<Book> books = BookIO.getBooks(path);
-
-        request.setAttribute("books", books);
-
+        
+        ArrayList<Book> loanItems = null;
+        
+        if (loanItems == null || loanItems.isEmpty()) {
+            loanItems = ELoan.loadItems(path);
+           
+            sc.setAttribute("loanItems", loanItems);    
+            
+        }
+        request.setAttribute("loanItems", loanItems);
         getServletContext()
                 .getRequestDispatcher(url)
                 .forward(request, response);
-
-    }
-     
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
 
     }
 
@@ -51,8 +46,14 @@ public class JAPUDisplayBooksServlet extends HttpServlet {
     }
 
     @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    @Override
     public String getServletInfo() {
         return "Short description";
-    }
+    }// </editor-fold>
 
 }

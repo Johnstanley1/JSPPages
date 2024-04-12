@@ -200,11 +200,26 @@ section h2 {
 
 table, tr {
     border: 1px solid black;
-    border-collapse: collapse;
-    width: 50em;
+    width: 30em;
 }
 th, td {
     border: 1px solid black;
     text-align: left;
     padding: .5em;
+}
+
+.noBorder tr,
+.noBorder th,
+.noBorder td,
+.noBorder{
+    border: none;
+    padding: 5px;
+}
+
+.ELoan tr,
+.ELoan th,
+.ELoan td,
+.ELoan{
+    border: none;
+    padding: 5px;
 }
