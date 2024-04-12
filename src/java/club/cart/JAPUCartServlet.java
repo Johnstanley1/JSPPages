@@ -25,9 +25,10 @@ public class JAPUCartServlet extends HttpServlet {
             
 
         String url = "/JAPUECart.jsp";
-        
-        ArrayList<Book> loanItems = (ArrayList<Book>) getServletContext().getAttribute("loanItems"); 
+        ServletContext sc = getServletContext();
         HttpSession session = request.getSession();
+        
+        ArrayList<Book> loanItems = (ArrayList<Book>) sc.getAttribute("loanItems"); 
         ECart loanCart = (ECart)session.getAttribute("loanCart");
         
         if (loanCart == null ) {
@@ -35,19 +36,22 @@ public class JAPUCartServlet extends HttpServlet {
             session.setAttribute("loanCart", loanCart);
         }
      
-        String action = request.getParameter("action");
-        
-         
+        String action = request.getParameter("action");         
         if (action != null && action.equals("reserve")) {
-            
-            String code = request.getParameter("code");
-           
-            Book loanItem = ELoan.findItem(loanItems, code);
-            
-            loanCart.addItem(loanItem);  
-            
-            ELoan.subtractFromQOH(loanItems, code, 1);
-                       
+             String code = request.getParameter("code");
+             Book books = ELoan.findItem(loanItems, code);
+             
+            if (books != null && books.getQuantity() > 0) {
+                loanCart.addItem(books);
+
+                // Update the quantity in inventory and update the attributes
+                ELoan.subtractFromQOH(loanItems, code, 1);
+
+                // Store loanItems in the session
+                session.setAttribute("loanItems", loanItems);
+                // Store loanCart in the session (if necessary)
+                session.setAttribute("loanCart", loanCart);
+            } 
         }    
         
         getServletContext().getRequestDispatcher(url).forward(request, response);   

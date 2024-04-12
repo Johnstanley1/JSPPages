@@ -24,15 +24,14 @@ public class JAPULoanServlet extends HttpServlet {
         String bookFilePath = sc.getInitParameter("booksFilePath");
         String path = sc.getRealPath(bookFilePath);
         
-        ArrayList<Book> loanItems = null;
-        
+        ArrayList<Book> loanItems = (ArrayList<Book>) request.getSession().getAttribute("loanItems");
+                
         if (loanItems == null || loanItems.isEmpty()) {
             loanItems = ELoan.loadItems(path);
            
             sc.setAttribute("loanItems", loanItems);    
             
         }
-        request.setAttribute("loanItems", loanItems);
         getServletContext()
                 .getRequestDispatcher(url)
                 .forward(request, response);

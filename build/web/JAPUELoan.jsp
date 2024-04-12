@@ -27,20 +27,20 @@
                 <tbody>
                     <c:forEach var="item" items="${loanItems}">
                          <tr>
-                            <td><c:out value="${item.code}"/></td>
-                            <td><c:out value="${item.description}"/></td>
+                            <td><c:out value="${item.getCode()}"/></td>
+                            <td><c:out value="${item.getDescription()}"/></td>
                             <td>
                                 <c:choose>
-                                    <c:when test="${item.quantity > 0}">
-                                        <c:out value="${item.quantity}"/>
+                                    <c:when test="${item.getQuantity() > 0}">
+                                        <c:out value="${item.getQuantity()}"/>
                                     </c:when>
                                     <c:otherwise>0</c:otherwise>
                                 </c:choose>
                             </td>
                             <td>
                                 <c:choose>
-                                    <c:when test="${item.quantity > 0}">
-                                        <a href="JAPUCart?action=reserve&amp;code=${item.code}">Reserve</a>
+                                    <c:when test="${item.getQuantity() > 0}">
+                                        <a href="JAPUCart?action=reserve&amp;code=${item.getCode()}">Reserve</a>
                                     </c:when>
                                     <c:otherwise>N/A</c:otherwise>
                                 </c:choose>

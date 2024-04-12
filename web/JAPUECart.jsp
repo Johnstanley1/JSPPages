@@ -28,10 +28,10 @@
                     <c:set var="totalQuantity" value="0"/>
                     <c:forEach var="item" items="${loanCart.items}">
                         <tr>
-                            <td><c:out value="${item.code}"/></td>
-                            <td><c:out value="${item.description}"/></td>
-                            <td style="text-align: right"><c:out value="${item.quantity}"/></td>
-                            <c:set var="totalQuantity" value="${totalQuantity + item.quantity}"/>
+                            <td><c:out value="${item.getCode()}"/></td>
+                            <td><c:out value="${item.getDescription()}"/></td>
+                            <td style="text-align: right"><c:out value="${item.getQuantity()}"/></td>
+                            <c:set var="totalQuantity" value="${totalQuantity + item.getQuantity()}"/>
                         </tr>
                     </c:forEach>
                         <tr>

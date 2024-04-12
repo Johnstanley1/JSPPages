@@ -40,17 +40,15 @@ public class ELoan implements Serializable {
 
     public static void subtractFromQOH(ArrayList<Book> items, String code, int qty) {
         int onHand = 0;
-        for (int i = 0; i < items.size(); i++) {
+        for (int i = 0; i <
+                items.size(); i++) {
             Book curItem = (Book) items.get(i);
-                        
             if (curItem.getCode().equals(code)) {
                 onHand = curItem.getQuantity();
-                                
-                if (onHand >= qty) {
-                    curItem.setQuantity(onHand - qty); 
-                    break;
+                if (onHand > 0) {
+                    curItem.setQuantity(onHand - qty);
                 }
-                
+                break;
             }
 
         }
@@ -77,7 +75,6 @@ public class ELoan implements Serializable {
             Book curItem = (Book) items.get(i);
             if (curItem.getCode().equals(code)) {
                 onHand = curItem.getQuantity();
-
                 break;
             }
         }
