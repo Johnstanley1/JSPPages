@@ -14,32 +14,34 @@
         <jsp:include page="Includes/JAPUBanner.jsp"/>
 
         <section>
-            <h2>Thanks for joining our club</h2>
-            <p>Here is the information you entered:</p>
+            <h1>List of members</h1>
             
-            <label>Full Name:</label>
-            <span>${param.fullName}</span><br>
-            
-            <label>Email:</label>
-            <span>${param.email}</span><br>
-
-            <label>Phone:</label>
-            <span>${param.phone}</span><br>
-        
-            <label>IT Program:</label>
-            <span>${param.program}</span><br>
-        
-            <label>Year Level:</label>
-            <span>${param.level}</span><br>
-            
-            <p>
-                To register another member, click on the back button in your browser
-                or the return button shown below
-            </p><br>
-            
-            <form action="JAPURegister.jsp">
-                <input type="hidden" name="action" value="join">
-                <input type="submit" value="Return" class="margin_left">
+            <table class="displayMembers">
+                <thead>
+                    <tr>
+                        <th>Email</th>
+                        <th>Full Name</th>
+                        <th>Program</th>
+                        <th>Year</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:forEach var="member" items="${members}">
+                        <tr>
+                            <td>${member.emailAddress}</td>
+                            <td>${member.fullName}</td>
+                            <td>${member.programName}</td>
+                            <td>${member.yearLevel}</td>
+                            <td><a href="<c:url value='JAPUMemberAdmin?action=editMember&amp;email=${member.emailAddress}'/>">Edit</a></td>
+                            <td><a href="<c:url value='JAPUMemberAdmin?action=removeMember&amp;email=${member.emailAddress}'/>">Remove</a></td>
+                        </tr>
+                    </c:forEach>
+                    
+                </tbody>
+            </table>
+            <form action="JAPUMemberAdmin" method="get">
+                <input type="hidden" name="action" value="addMember">
+                <input type="submit" value="Add member">
             </form>
         </section>
         

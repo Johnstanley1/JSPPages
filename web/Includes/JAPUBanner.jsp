@@ -21,7 +21,7 @@
         <nav id="nav_bar">
             <ul>
                 <li><a href="<c:url value='JAPUIndex.jsp'/>">Home</a></li>
-                <li><a href="<c:url value='JAPURegister.jsp'/>">Register</a></li>
+                <li><a href="<c:url value='JAPUMemberAdmin?action=addMember'/>">Register</a></li>
                 <li><a href="<c:url value='JAPULoan'/>">eLoan</a></li>
                 <li><a href="<c:url value='JAPUECart.jsp'/>">eCart</a></li>
                 <li><a href="<c:url value='JAPUAdmin.jsp'/>">Admin</a></li>

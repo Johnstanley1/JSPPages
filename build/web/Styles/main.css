@@ -223,3 +223,14 @@ th, td {
     border: none;
     padding: 5px;
 }
+
+.displayMembers tr,
+.displayMembers th,
+.displayMembers td,
+.displayMembers{
+    border: none;
+    padding: 5px;
+    width: 40em;
+    font-size: small;
+}
+

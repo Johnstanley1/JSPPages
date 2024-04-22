@@ -16,7 +16,8 @@
           
         <section>
             <h1>Admin: Data Maintenance</h1>
-            <a href="<c:url value='JAPUDisplayBooks'/>">Maintain Books</a>
+            <a href="<c:url value='JAPUDisplayBooks?action=displayBooks'/>">Maintain Books</a><br><br>
+            <a href="<c:url value='JAPUMemberAdmin?action=displayMembers'/>">Display Members</a>
         </section>
         
         <jsp:include page="Includes/JAPUFooter.jsp"/>

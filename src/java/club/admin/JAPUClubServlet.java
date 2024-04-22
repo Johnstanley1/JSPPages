@@ -49,6 +49,8 @@ public class JAPUClubServlet extends HttpServlet {
             if (!level.isEmpty() && level !=null) {
                 levelParam = Integer.parseInt(level);
             }
+            
+            System.out.println(levelParam);
             //store data in the user object
             JAPUUser user = new JAPUUser(fullName, email, phone, program, levelParam);
 

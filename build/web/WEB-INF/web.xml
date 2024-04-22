@@ -41,6 +41,16 @@
         <servlet-class>club.cart.JAPUClearCartServlet</servlet-class>
     </servlet>
     
+    <servlet>
+        <servlet-name>JAPUMemberAdminController</servlet-name>
+        <servlet-class>club.admin.JAPUMemberAdminController</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>JAPUMemberAdminController</servlet-name>
+        <url-pattern>/JAPUMemberAdmin</url-pattern>
+    </servlet-mapping>
+    
     <servlet-mapping>
         <servlet-name>JAPUClubServlet</servlet-name>
         <url-pattern>/JAPUClub</url-pattern>
